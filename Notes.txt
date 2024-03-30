@@ -1,0 +1,2 @@
+- Prensent the CSV file, and one audio example.
+- Look into spectogram of maybe make it into a table and use pca to decrease features.
