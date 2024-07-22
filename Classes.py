@@ -74,7 +74,6 @@ import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('stopwords')
-!pip install spacy
 
 import numpy as np
 import pandas as pd
