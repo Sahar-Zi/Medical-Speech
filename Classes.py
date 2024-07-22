@@ -71,9 +71,6 @@ The modelingClass is designed to facilitate the machine learning modeling proces
 """
 
 import nltk
-nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('stopwords')
 
 import numpy as np
 import pandas as pd
