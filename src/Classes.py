@@ -71,6 +71,10 @@ The modelingClass is designed to facilitate the machine learning modeling proces
 """
 
 import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('stopwords')
+!pip install spacy
 
 import numpy as np
 import pandas as pd
@@ -286,15 +290,15 @@ class EDAClass:
       plt.axis('off')
       plt.show()
 
-      phrases_df = phrases.str.get_dummies(sep=' ')
+    phrases_df = phrases.str.get_dummies(sep=' ')
 
-      if drop_leading_words:
-        phrases_df.drop(['cough', 'coughing','infected','infection','wound'], axis=1, inplace = True)
+    if drop_leading_words:
+      phrases_df.drop(['cough', 'coughing','infected','infection','wound'], axis=1, inplace = True)
 
-      if inplace:
-        self.X = self.X.join(phrases_df)
-      else:
-        return self.X.join(phrases_df)
+    if inplace:
+      self.X = self.X.join(phrases_df)
+    else:
+      return self.X.join(phrases_df)
 
   def Add_audio_features(self, inplace = False):
     """
@@ -419,10 +423,7 @@ class modelingClass:
         NLP (bool): Whether the data is for NLP tasks. Defaults to False.
     """
     self.X = X
-    if type(y) == pd.core.series.Series:
-      self.y = y.values
-    else:
-      self.y = y
+    self.y = y
     self.NLP = NLP
     self.X_train = None
     self.X_test = None
